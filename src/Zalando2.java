@@ -6,7 +6,7 @@ public class Zalando2 {
 
         String a1 = "CBACD";
         String a2 = "CABABD";
-        String a3 = "ACBDACBD";
+        String a3 = "ACBDACBD";//1254
 
 
         System.out.println(z.Transform(a3));
