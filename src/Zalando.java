@@ -18,14 +18,14 @@ public class Zalando {
 
     private boolean walk(MapContainer mc) {
 
-        if (mc.getMap()[mc.getaI()][mc.getaJ()] == 0)
+        if (mc.getMap()[mc.getAssassinI()][mc.getAssassinJ()] == 0)
             return false;
 
         short lastI = (short) (mc.getMap().length - 1);
         short lastJ = (short) (mc.getMap()[0].length - 1);
 
         Stack<point> takenPath = new Stack<>();
-        takenPath.push(new point(mc.getaI(), mc.getaJ()));
+        takenPath.push(new point(mc.getAssassinI(), mc.getAssassinJ()));
         while (!takenPath.empty()) {
 
 
@@ -59,16 +59,16 @@ public class Zalando {
 
     private MapContainer getMap(String[] arr) {
         short[][] map = new short[arr.length][arr[0].length()];
-        short aI = -1;
-        short aJ = -1;
+        short assassinI = -1;
+        short assassinJ = -1;
 
         for (short i = 0; i < arr.length; i++) {
             for (short j = 0; j < arr[0].length(); j++) {
                 char c = arr[i].charAt(j);
                 map[i][j] = 0;
                 if (c == 'A') {
-                    aI = i;
-                    aJ = j;
+                    assassinI = i;
+                    assassinJ = j;
                     map[i][j] = -1;
                 }
                 if (c == '.' || c == 'A') {
@@ -77,7 +77,7 @@ public class Zalando {
             }
         }
 
-        return new MapContainer(aI, aJ, map);
+        return new MapContainer(assassinI, assassinJ, map);
 
     }
 
@@ -119,7 +119,7 @@ public class Zalando {
     }
 
 
-    public class point {
+    public static class point {
 
         private short i;
         private short j;
@@ -146,32 +146,32 @@ public class Zalando {
         }
     }
 
-    private class MapContainer {
-        private short aI;
-        private short aJ;
+    private static class MapContainer {
+        private short assassinI;
+        private short assassinJ;
         private short[][] map;
 
 
         private MapContainer(short aI, short aJ, short[][] map) {
-            this.aI = aI;
-            this.aJ = aJ;
+            this.assassinI = aI;
+            this.assassinJ = aJ;
             this.map = map;
         }
 
-        public short getaI() {
-            return aI;
+        public short getAssassinI() {
+            return assassinI;
         }
 
-        public void setaI(short aI) {
-            this.aI = aI;
+        public void setAssassinI(short aI) {
+            this.assassinI = aI;
         }
 
-        public short getaJ() {
-            return aJ;
+        public short getAssassinJ() {
+            return assassinJ;
         }
 
-        public void setaJ(short aJ) {
-            this.aJ = aJ;
+        public void setAssassinJ(short assassinJ) {
+            this.assassinJ = assassinJ;
         }
 
         public short[][] getMap() {
